@@ -21,27 +21,6 @@ public class ServiceResult<T>
         };
     }
 
-    public static ServiceResult<T> SuccessAsCreated(T data, string urlAsCreated)
-    {
-        return new ServiceResult<T>
-        {
-            Data = data,
-            Status = StatusCodes.Status201Created,
-            UrlAsCreated = urlAsCreated
-        };
-    }
-
-
-    public static ServiceResult<T> Fail(List<string> errorMessage,
-        int status = StatusCodes.Status400BadRequest)
-    {
-        return new ServiceResult<T>
-        {
-            ErrorMessage = errorMessage,
-            Status = status
-        };
-    }
-
     public static ServiceResult<T> Fail(string errorMessage, int status = StatusCodes.Status400BadRequest)
     {
         return new ServiceResult<T>
