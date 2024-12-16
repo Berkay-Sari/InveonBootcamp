@@ -1,0 +1,24 @@
+﻿@model List<LibraryManagement.Web.Models.DTOs.BookListItemResponse>
+
+<h1>Book List</h1>
+<table class="table">
+	<thead>
+	<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Publication Year</th>
+		<th>ISBN</th>
+	</tr>
+	</thead>
+	<tbody>
+	@foreach (var book in Model)
+	{
+		<tr>
+			<td><a href="@Url.Action("Details", "Books", new { id = book.Id })">@book.Title</a></td>
+			<td>@book.Author</td>
+			<td>@book.PublicationYear</td>
+			<td>@book.ISBN</td>
+		</tr>
+	}
+	</tbody>
+</table>

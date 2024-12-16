@@ -1,0 +1,35 @@
+﻿@model LibraryManagement.Web.Models.DTOs.CreateUserRequest
+
+<div class="container mt-5">
+	<h1 class="text-center mb-4">Create New User</h1>
+	<form method="post" class="shadow p-4 bg-light rounded">
+		@if (!ViewData.ModelState.IsValid)
+		{
+			<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+		}
+		<div class="mb-3">
+			<label for="UserName" class="form-label">Username</label>
+			<input type="text" class="form-control" id="UserName" name="UserName" value="@Model?.UserName" placeholder="Enter username" required/>
+		</div>
+		<div class="mb-3">
+			<label for="Email" class="form-label">Email</label>
+			<input type="email" class="form-control" id="Email" name="Email" value="@Model?.Email" placeholder="Enter email address" required/>
+		</div>
+		<div class="mb-3">
+			<label for="Password" class="form-label">Password</label>
+			<input type="password" class="form-control" id="Password" name="Password" placeholder="Enter password" required/>
+		</div>
+		<div class="mb-3">
+			<label for="FirstName" class="form-label">First Name</label>
+			<input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model?.FirstName" placeholder="Enter first name" required/>
+		</div>
+		<div class="mb-3">
+			<label for="LastName" class="form-label">Last Name</label>
+			<input type="text" class="form-control" id="LastName" name="LastName" value="@Model?.LastName" placeholder="Enter last name" required/>
+		</div>
+		<div class="d-flex justify-content-between">
+			<button type="submit" class="btn btn-primary">Create User</button>
+			<a href="@Url.Action("Index", "Users")" class="btn btn-secondary">Back to User List</a>
+		</div>
+	</form>
+</div>

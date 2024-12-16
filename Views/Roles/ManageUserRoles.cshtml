@@ -1,0 +1,40 @@
+﻿@model List<LibraryManagement.Web.Models.DTOs.UserRoleViewModel>
+
+@{
+	ViewData["Title"] = "Manage User Roles";
+	Guid userId = ViewBag.UserId;
+}
+
+<div class="container mt-5">
+	<h1 class="mb-4">Manage Roles for User</h1>
+
+	<form asp-action="ManageUserRoles" method="post">
+		<input type="hidden" name="userId" value="@userId" />
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+			<tr>
+				<th>Role Name</th>
+				<th>Assigned</th>
+			</tr>
+			</thead>
+			<tbody>
+			@foreach (var role in Model)
+			{
+				<tr>
+					<td>@role.RoleName</td>
+					<td>
+						<input type="checkbox" name="model[@Model.IndexOf(role)].IsAssigned" 
+						       value="true" @(role.IsAssigned ? "checked" : "") />
+						<input type="hidden" name="model[@Model.IndexOf(role)].RoleId" value="@role.RoleId" />
+						<input type="hidden" name="model[@Model.IndexOf(role)].RoleName" value="@role.RoleName" />
+					</td>
+				</tr>
+			}
+			</tbody>
+		</table>
+
+		<button type="submit" class="btn btn-success">Save Changes</button>
+		<a href="@Url.Action("Index", "Users")" class="btn btn-secondary">Cancel</a>
+	</form>
+</div>

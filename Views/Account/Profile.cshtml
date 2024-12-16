@@ -1,0 +1,54 @@
+﻿@model LibraryManagement.Web.Models.Entities.AppUser
+
+@{
+	ViewData["Title"] = "Profile";
+}
+
+<h2 class="text-center my-4">Profile</h2>
+
+<div class="container d-flex justify-content-center">
+	<div class="card p-4 shadow-sm" style="width: 100%; max-width: 600px;">
+		<div class="text-center mb-4">
+			<h4>@Model.FullName</h4>
+			<p class="text-muted">@Model.Email</p>
+		</div>
+		<table class="table table-bordered">
+			<tbody>
+			<tr>
+				<th scope="row" style="width: 40%;">First Name</th>
+				<td>@Model.FirstName</td>
+			</tr>
+			<tr>
+				<th scope="row">Last Name</th>
+				<td>@Model.LastName</td>
+			</tr>
+			<tr>
+				<th scope="row">Email</th>
+				<td>@Model.Email</td>
+			</tr>
+			<tr>
+				<th scope="row">Username</th>
+				<td>@Model.UserName</td>
+			</tr>
+			<tr>
+				<th scope="row">Roles</th>
+				<td>
+					@if (ViewBag.Roles != null)
+					{
+						<ul class="list-unstyled mb-0">
+							@foreach (var role in ViewBag.Roles)
+							{
+								<li>@role</li>
+							}
+						</ul>
+					}
+					else
+					{
+						<span class="text-muted">No roles assigned</span>
+					}
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+
+<h2 class="text-center my-4">Welcome to LibraryManagement</h2>
+
+<div class="container d-flex justify-content-center">
+	<div class="card p-4 shadow-sm" style="width: 100%; max-width: 600px;">
+		<p>
+			@if (User.Identity is { IsAuthenticated: true })
+			{
+				<p>
+					Welcome, @User.Identity.Name! 
+					To get started, click on the Books link in the navigation bar.
+				</p>
+			}
+			else
+			{
+				<p>
+					Hello, Guest!
+					Please <a  asp-controller="Account" asp-action="Login" class="text-primary">Log in</a> 
+					or <a asp-controller="Account" asp-action="Signup" class="text-primary">Sign up</a> to get started.
+				</p>
+			}
+
+		</p>
+	</div>
+
+</div>
+
