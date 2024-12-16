@@ -19,7 +19,7 @@ Simple Library Management System Web Application
 - `Repository : IRepository` : Generic Repository for those other than Identity. 
 - `UnitOfWork : IUnitOfWork` : Unit of work for those other than Identity.
 - `ServiceResult` : Used as the return type of Services, except for Identity. Used IdentityResult for Identity.
-- `seed.sql` : Query file that inserts the initial books, since the create, update and delete operations are required in the next assignment.
+- `seed.sql` : Query file that inserts the initial books, since the create, update and delete operations will be implemented in the next assignment.
 
 ## Tech Stack
 
